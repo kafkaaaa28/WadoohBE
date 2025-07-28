@@ -5,7 +5,7 @@ const userRoutes = require('./Routes/userRoutes.js');
 const locationRoutes = require('./Routes/locationRoutes.js');
 const app = express();
 const corsOptions = {
-  origin: ['http://192.168.100.230:3000', 'http://localhost:3000'],
+  origin: ['http://192.168.100.230:3000', 'http://localhost:3000', 'https://wadoohfe.vercel.app/'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
   credentials: true,
 };

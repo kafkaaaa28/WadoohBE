@@ -35,6 +35,14 @@ const userPlantController = {
       res.status(500).json({ message: err.message });
     }
   },
+  getAlluserPlants: async (req, res) => {
+    try {
+      const userPlants = await UserPlant.getAll();
+      res.json(userPlants);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  },
 };
 
 module.exports = userPlantController;

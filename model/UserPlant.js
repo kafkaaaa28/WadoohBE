@@ -16,6 +16,10 @@ class UserPlant {
     );
     return rows;
   }
+  static async getAll() {
+    const [rows] = await db.query('SELECT * FROM user_plants');
+    return rows;
+  }
 }
 
 module.exports = UserPlant;

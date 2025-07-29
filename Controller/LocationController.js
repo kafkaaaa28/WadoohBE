@@ -36,5 +36,21 @@ const LocationController = {
       res.status(500).json({ error: 'Gagal mengambil data' });
     }
   },
+  NewsApi: async (req, res) => {
+    try {
+      const response = await fetch(`https://newsapi.org/v2/everything?q=pertanian&language=id&apiKey=${process.env.BERITA_API_KEY}`);
+      const data = await response.json();
+
+      if (data.articles && Array.isArray(data.articles)) {
+        const limitedArticles = data.articles.slice(0, 6);
+        res.json({ articles: limitedArticles });
+      } else {
+        res.json({ articles: [] });
+      }
+    } catch (error) {
+      console.error('Error from NewsAPI:', error);
+      res.status(500).json({ error: 'Failed to fetch news' });
+    }
+  },
 };
 module.exports = LocationController;
